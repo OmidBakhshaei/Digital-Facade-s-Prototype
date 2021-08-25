@@ -20,6 +20,7 @@ let allColors = {}
 let coloredDisks = {}
 let colorRGBA = {}
 
+
 for (let i = 0; i < HorizantalDisks * VerticalDisks; i++) {
     if (colorRGBA.hasOwnProperty(i) == true) {
         allColors[i] = colorRGBA[i]
@@ -29,6 +30,7 @@ for (let i = 0; i < HorizantalDisks * VerticalDisks; i++) {
         allColors[i] = defaultColor
     }
 }
+
 
 function setup() {
     createCanvas(windowWidth, windowHeight + 20);
@@ -60,6 +62,7 @@ function setup() {
     box.style.height = '27px';
 }
 
+
 function draw() {
     background(0);
     sliderValue = slider.value();
@@ -88,6 +91,7 @@ function draw() {
     stroke(colPic.color().toString().slice(0, -2) + new2 + ")")
     let rectangle = rect(x1, y1, x2 - x1, y2 - y1);
 }
+
 
 class Disk {
     constructor(diskX, diskY, diskRadius, diskColor, diskIndex) {
@@ -145,7 +149,6 @@ class Disk {
 function mousePressed() {
     x1 = mouseX;
     y1 = mouseY;
-    // }
     if (checked != true) {
         for (let i = 0; i < disks.length; i++) {
             disks[i].lightUp(mouseX, mouseY, i);
@@ -184,7 +187,7 @@ function keyTyped() {
         console.log(coloredDisks)
     }
     else if (key === 'c') {
-        // Recreate the colorsز
+        // Recreate the colors
         coloredDisks = {}
         for (let i = 0; i < disks.length; i++) {
             if (colorRGBA.hasOwnProperty(i) == true) {
